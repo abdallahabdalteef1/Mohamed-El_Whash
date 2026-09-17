@@ -1,0 +1,128 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Mazga Paint — design system
+ * Pigment-forward palette on warm paper. All colors are semantic tokens.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-line: var(--line);
+  --color-cobalt: var(--cobalt);
+  --color-mustard: var(--mustard);
+  --color-verd: var(--verd);
+  --color-plum: var(--plum);
+  --color-sky: var(--sky);
+  --color-cream: var(--cream);
+  --color-cocoa: var(--cocoa);
+  --font-display: "Cairo", sans-serif;
+  --font-body: "Tajawal", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: #f6f0e4;
+  --foreground: #1b1510;
+  --card: #fff6e8;
+  --card-foreground: #1b1510;
+  --popover: #fff6e8;
+  --popover-foreground: #1b1510;
+  --primary: #e23b2e;
+  --primary-foreground: #fff6e8;
+  --secondary: #f3e9cf;
+  --secondary-foreground: #12100d;
+  --muted: #efe7d5;
+  --muted-foreground: #7a6f60;
+  --accent: #f2a900;
+  --accent-foreground: #12100d;
+  --destructive: #b3261e;
+  --destructive-foreground: #fff6e8;
+  --border: #d8cdb6;
+  --input: #d8cdb6;
+  --ring: #e23b2e;
+  --ink: #12100d;
+  --paper: #fff6e8;
+  --line: #d8cdb6;
+  --cobalt: #1f4fd6;
+  --mustard: #f2a900;
+  --verd: #1f9d57;
+  --plum: #7a1f57;
+  --sky: #37b6e0;
+  --cream: #f3e9cf;
+  --cocoa: #5b3a24;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility marquee {
+  animation: marquee 18s linear infinite;
+}
+
+@utility rise {
+  animation: rise 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
